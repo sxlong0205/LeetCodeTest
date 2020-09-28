@@ -1,4 +1,4 @@
-public class Node {
+class Node {
     public int val;
     public Node left;
     public Node right;
@@ -17,4 +17,4 @@ public class Node {
         right = _right;
         next = _next;
     }
-};
+}
