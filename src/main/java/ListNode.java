@@ -6,8 +6,16 @@ public class ListNode {
     int val;
     ListNode next;
 
+    public ListNode() {
+    }
+
     ListNode(int x) {
         val = x;
+    }
+
+    ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 
 
@@ -28,14 +36,5 @@ public class ListNode {
             System.out.print("-->");
             this.next.print();
         }
-    }
-
-    public static void main(String[] args) {
-        int[] constructs = new int[]{1, 3, 2};
-        ListNode listNode = new ListNode(constructs[0]);
-        for (int i = 1; i < constructs.length; i++) {
-            listNode.add(constructs[i]);
-        }
-        listNode.print();
     }
 }

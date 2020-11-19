@@ -1,32 +1,33 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 /**
  * @author : Code Dragon
  * create at:  2020/7/20  8:56
  */
-class Solution {
-    public Node connect(Node root) {
-        if (root == null) return root;
-
-        Queue<Node> queue = new LinkedList<>();
+public class Solution {
+    public int[] levelOrder(TreeNode root) {
+        if (root == null) return new int[]{};
+        List<Integer> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            int len = queue.size();
-            for (int i = 0; i < len; i++) {
-                Node temp = queue.poll();
+            TreeNode temp = queue.poll();
+            result.add(temp.val);
+            if (temp.left != null)
+                queue.add(temp.left);
+            if (temp.right != null)
+                queue.add(temp.right);
 
-                if (i < len - 1) {
-                    temp.next = queue.peek();
-                }
-
-                if (temp.left != null)
-                    queue.add(temp.left);
-                if (temp.right != null)
-                    queue.add(temp.right);
-            }
         }
-        return root;
+
+        int[] temp = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            temp[i] = result.get(i);
+        }
+        return temp;
     }
 }
-
