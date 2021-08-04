@@ -85,16 +85,21 @@ public class SkipList {
     /**
      * 插入操作
      *
+     * 插入操作的基本思想是在最底层肯定要插入元素，然后判断是否需要向上层延伸
+     * 这里向上延伸用一个随机数来判断，如果随机数大于0.5则向上
+     * 同时，要找到上层的节点，需要用到Stack结构来存储每一层头节点
+     *
      * @param node
      */
     public void add(SkipNode node) {
         int key = node.key;
         SkipNode findNode = search(key);
-        // 判断当前跳表中是否已经有这个节点
+        // 判断当前跳表中是否已经存在key，如果存在，直接更新value即可
         if (findNode != null) {
             findNode.value = node.value;
             return;
         }
+
         /**
          * 存储向下的节点，这些节点可能在右侧插入节点
          */
