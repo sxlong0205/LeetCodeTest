@@ -14,6 +14,13 @@ public class BinarySearch {
         return -1;
     }
 
+    /**
+     * 寻找左边界
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     public int left_bound(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {
@@ -32,6 +39,12 @@ public class BinarySearch {
         return left;
     }
 
+    /**
+     * 寻找右边界
+     * @param nums
+     * @param target
+     * @return
+     */
     public int right_bound(int[] nums, int target) {
         int left = 0, right = nums.length - 1;
         while (left <= right) {

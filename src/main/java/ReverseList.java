@@ -1,6 +1,14 @@
+/**
+ * @author Code Dragon
+ */
 public class ReverseList {
 
-    // 递归翻转链表
+    /**
+     * 递归翻转链表
+     *
+     * @param node
+     * @return
+     */
     private ListNode reverse(ListNode node) {
         if (node.next == null) {
             return node;
@@ -12,7 +20,9 @@ public class ReverseList {
         return last;
     }
 
-    // 翻转链表前N个节点
+    /**
+     * 翻转链表前N个节点
+     */
     ListNode successor = null;
 
     private ListNode reverseN(ListNode node, int n) {
@@ -27,7 +37,14 @@ public class ReverseList {
         return last;
     }
 
-    // 翻转链表的一部分
+    /**
+     * 翻转链表的一部分
+     *
+     * @param node
+     * @param m
+     * @param n
+     * @return
+     */
     private ListNode reverseBetween(ListNode node, int m, int n) {
         if (m == 1) {
             return reverseN(node, n);
@@ -36,7 +53,12 @@ public class ReverseList {
         return node;
     }
 
-    // 迭代翻转链表
+    /**
+     * 迭代翻转链表
+     *
+     * @param node
+     * @return
+     */
     private ListNode iterReverse(ListNode node) {
         ListNode pre = null, curr = node, next;
         while (curr != null) {
@@ -48,7 +70,13 @@ public class ReverseList {
         return pre;
     }
 
-    // 翻转(a,b)区间
+    /**
+     * 翻转(a,b)区间
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     private ListNode iterReverseBetween(ListNode a, ListNode b) {
         ListNode pre, curr, next;
         pre = null;
@@ -63,7 +91,13 @@ public class ReverseList {
         return pre;
     }
 
-    // 翻转K个一组的链表
+    /**
+     * 翻转K个一组的链表
+     *
+     * @param head
+     * @param k
+     * @return
+     */
     private ListNode revserKGroup(ListNode head, int k) {
         if (head == null) {
             return null;

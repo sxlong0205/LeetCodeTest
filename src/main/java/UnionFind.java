@@ -1,3 +1,6 @@
+/**
+ * @author codedragon
+ */
 public class UnionFind {
     int count = 0;
     int[] parent;
@@ -5,6 +8,7 @@ public class UnionFind {
 
     /**
      * 初始化节点父节点，节点所以对应树的大小
+     *
      * @param count
      */
     public UnionFind(int count) {
@@ -18,7 +22,12 @@ public class UnionFind {
         }
     }
 
-    // 合并树
+    /**
+     * 合并树
+     *
+     * @param p
+     * @param q
+     */
     public void union(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
@@ -37,14 +46,25 @@ public class UnionFind {
         count--;
     }
 
-    // 判断两个节点之间是否联通
+    /**
+     * 判断两个节点之间是否联通
+     *
+     * @param p
+     * @param q
+     * @return
+     */
     public boolean connected(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
         return rootP == rootQ;
     }
 
-    // 查找当前节点的父节点
+    /**
+     * 查找当前节点的父节点
+     *
+     * @param p
+     * @return
+     */
     private int find(int p) {
         while (parent[p] != p) {
             parent[p] = parent[parent[p]];
@@ -53,7 +73,11 @@ public class UnionFind {
         return p;
     }
 
-    // 返回剩余集合数量
+    /**
+     * 返回剩余集合数量
+     *
+     * @return
+     */
     public int count() {
         return count;
     }
